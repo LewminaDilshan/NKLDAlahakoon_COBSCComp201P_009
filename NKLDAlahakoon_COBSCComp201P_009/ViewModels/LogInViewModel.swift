@@ -12,82 +12,43 @@ import Firebase
 class LogInViewModel : ObservableObject{
     
     let auth = Auth.auth()
-    
+    @Published var userModel = UserModel()
+    @Published var credentials = Credentials()
     @Published var loggedIn = false
     @Published var showProgressView = false
+    @Published var error: Authentication.AuthenticationError?
     
     var isLoggedIn: Bool{
-           return auth.currentUser != nil
-       }
-    
-    func HandleLogIn(user : UserModel) -> Bool {
-        var IsError = false
-        showProgressView = true
-        auth.signIn(withEmail: user.email, password: user.password){ [unowned self](authResult, error) in
-            showProgressView = false
-            if let error = error as NSError? {
-                IsError = true
-              switch AuthErrorCode(rawValue: error.code) {
-                  case .operationNotAllowed:
-                    print("Error: Indicates that email and password accounts are not enabled. Enable them in the Auth section of the Firebase console.")
-                  case .userDisabled:
-                    print("Error: The user account has been disabled by an administrator.")
-                  case .wrongPassword:
-                    print("Error: The password is invalid or the user does not have a password.")
-                  case .invalidEmail:
-                    print("Error: Indicates the email address is malformed.")
-                  default:
-                      print("Error: \(error.localizedDescription)")
-                  }
-            }
-            else {
-                DispatchQueue.main.async {
-                    print("User signs in successfully")
-                    self.loggedIn = true
-                }
-            }
-        }
-        return IsError
+        return auth.currentUser != nil
     }
     
-    func HandleSignUp(userM : UserModel) -> Bool {
+    func login(completion: @escaping (Bool) -> Void) {
         showProgressView = true
-        let db = Firestore.firestore()
-    var IsError = false
-    Auth.auth().createUser(withEmail: userM.email, password: userM.password){ [unowned self](authResult, error) in
-        showProgressView = false
-            if let error = error as NSError? {
-                IsError = true
-              switch AuthErrorCode(rawValue: error.code) {
-                  case .operationNotAllowed:
-                    print("Error: Indicates that email and password accounts are not enabled. Enable them in the Auth section of the Firebase console.")
-                  case .emailAlreadyInUse:
-                    print("Error: Email Address already used.")
-                  case .weakPassword:
-                    print("Error: The password is week.")
-                  default:
-                      print("Error: \(error.localizedDescription)")
-                  }
-            } else {
-                let user = Auth.auth().currentUser
-                
-                if let user = user {
-                    let userId = user.uid
-                    let objUser :[String: Any] = [
-                        "UserID" : userId,
-                        "First Name" : userM.firstName,
-                        "Last Name" : userM.lastName,
-                    ]
-                    db.collection("UserInfo").document(userId).setData(objUser) { err in
-                        if let err = err {
-                            print("Error writing document: \(err)")
-                        } else {
-                            print("Document successfully written!")
-                        }
-                    }
-                }
+        AuthService.shared.login(credentials: credentials){[unowned self](result:Result<Bool, Authentication.AuthenticationError>) in
+            showProgressView = false
+            switch result {
+            case .success:
+                completion(true)
+            case .failure(let authError):
+                userModel = UserModel()
+                error = authError
+                completion(false)
             }
         }
-        return IsError
+    }
+    
+    func signup(completion: @escaping (Bool) -> Void) {
+        showProgressView = true
+        AuthService.shared.signup(credentials: credentials, userM: userModel){[unowned self](result:Result<Bool, Authentication.AuthenticationError>) in
+            showProgressView = false
+            switch result {
+            case .success:
+                completion(true)
+            case .failure(let authError):
+                userModel = UserModel()
+                error = authError
+                completion(false)
+            }
+        }
     }
 }
