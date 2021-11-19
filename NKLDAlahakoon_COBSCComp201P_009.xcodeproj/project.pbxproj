@@ -10,6 +10,16 @@
 		4E0152AE778B24D1E4AD7826 /* Pods_NKLDAlahakoon_COBSCComp201P_009Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BA0E7670C2B77D6CF3F5FE /* Pods_NKLDAlahakoon_COBSCComp201P_009Tests.framework */; };
 		54555DB81D657C03F2BD3D69 /* Pods_NKLDAlahakoon_COBSCComp201P_009_NKLDAlahakoon_COBSCComp201P_009UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7761D63A111FB46F7A485FA0 /* Pods_NKLDAlahakoon_COBSCComp201P_009_NKLDAlahakoon_COBSCComp201P_009UITests.framework */; };
 		9F18CB4CB5E794689ECD7E99 /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570DBB549B00F28A8F246CEA /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework */; };
+		EF6BB2372743AC1B00BED6FD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB2362743AC1B00BED6FD /* HomeViewModel.swift */; };
+		EF6BB2392743B1FE00BED6FD /* SlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB2382743B1FE00BED6FD /* SlotModel.swift */; };
+		EF6BB23B2745093600BED6FD /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB23A2745093600BED6FD /* BookingView.swift */; };
+		EF6BB23D27450F9300BED6FD /* BookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB23C27450F9300BED6FD /* BookingModel.swift */; };
+		EF6BB23F2746593900BED6FD /* BookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB23E2746593900BED6FD /* BookingViewModel.swift */; };
+		EF755E5B2742637900800AD1 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF755E5A2742637900800AD1 /* Authentication.swift */; };
+		EF755E5E2742762800800AD1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF755E5D2742762800800AD1 /* AuthService.swift */; };
+		EF755E622742E13E00800AD1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF755E612742E13E00800AD1 /* SettingsView.swift */; };
+		EF755E642742E1E700800AD1 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF755E632742E1E700800AD1 /* SettingsViewModel.swift */; };
+		EF755E662742EDEA00800AD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF755E652742EDEA00800AD1 /* HomeView.swift */; };
 		EF7FE16F273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE16E273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009App.swift */; };
 		EF7FE171273783FD00FD2EDB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE170273783FD00FD2EDB /* ContentView.swift */; };
 		EF7FE1732737840100FD2EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF7FE1722737840100FD2EDB /* Assets.xcassets */; };
@@ -49,6 +59,16 @@
 		8CAD6F12A8A3F4D038F5F3F2 /* Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.debug.xcconfig"; path = "Target Support Files/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B556B26C9153BDFE4BD787EC /* Pods-NKLDAlahakoon_COBSCComp201P_009.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKLDAlahakoon_COBSCComp201P_009.release.xcconfig"; path = "Target Support Files/Pods-NKLDAlahakoon_COBSCComp201P_009/Pods-NKLDAlahakoon_COBSCComp201P_009.release.xcconfig"; sourceTree = "<group>"; };
 		C19D7E7D9AA07B680F034655 /* Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.release.xcconfig"; path = "Target Support Files/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF6BB2362743AC1B00BED6FD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EF6BB2382743B1FE00BED6FD /* SlotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotModel.swift; sourceTree = "<group>"; };
+		EF6BB23A2745093600BED6FD /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
+		EF6BB23C27450F9300BED6FD /* BookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingModel.swift; sourceTree = "<group>"; };
+		EF6BB23E2746593900BED6FD /* BookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewModel.swift; sourceTree = "<group>"; };
+		EF755E5A2742637900800AD1 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		EF755E5D2742762800800AD1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		EF755E612742E13E00800AD1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EF755E632742E1E700800AD1 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		EF755E652742EDEA00800AD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF7FE16B273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NKLDAlahakoon_COBSCComp201P_009.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF7FE16E273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NKLDAlahakoon_COBSCComp201P_009App.swift; sourceTree = "<group>"; };
 		EF7FE170273783FD00FD2EDB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +138,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EF755E5C2742760B00800AD1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EF755E5D2742762800800AD1 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		EF7FE162273783FC00FD2EDB = {
 			isa = PBXGroup;
 			children = (
@@ -143,11 +171,13 @@
 		EF7FE16D273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009 */ = {
 			isa = PBXGroup;
 			children = (
+				EF755E5C2742760B00800AD1 /* Services */,
 				EF7FE1B12737AA5A00FD2EDB /* Models */,
 				EF7FE19E2737990D00FD2EDB /* Views */,
 				EF7FE19B2737947700FD2EDB /* ViewModels */,
 				EF7FE1992737876700FD2EDB /* GoogleService-Info.plist */,
 				EF7FE16E273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009App.swift */,
+				EF755E5A2742637900800AD1 /* Authentication.swift */,
 				EF7FE1722737840100FD2EDB /* Assets.xcassets */,
 				EF7FE1772737840100FD2EDB /* Info.plist */,
 				EF7FE1742737840100FD2EDB /* Preview Content */,
@@ -185,6 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				EF7FE1AD2737A90D00FD2EDB /* LogInViewModel.swift */,
+				EF755E632742E1E700800AD1 /* SettingsViewModel.swift */,
+				EF6BB2362743AC1B00BED6FD /* HomeViewModel.swift */,
+				EF6BB23E2746593900BED6FD /* BookingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -194,6 +227,9 @@
 			children = (
 				EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */,
 				EF7FE170273783FD00FD2EDB /* ContentView.swift */,
+				EF755E612742E13E00800AD1 /* SettingsView.swift */,
+				EF755E652742EDEA00800AD1 /* HomeView.swift */,
+				EF6BB23A2745093600BED6FD /* BookingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				EF7FE1B22737AA7300FD2EDB /* UserModel.swift */,
+				EF6BB2382743B1FE00BED6FD /* SlotModel.swift */,
+				EF6BB23C27450F9300BED6FD /* BookingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,11 +482,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF755E5B2742637900800AD1 /* Authentication.swift in Sources */,
+				EF6BB23F2746593900BED6FD /* BookingViewModel.swift in Sources */,
+				EF6BB2392743B1FE00BED6FD /* SlotModel.swift in Sources */,
+				EF6BB2372743AC1B00BED6FD /* HomeViewModel.swift in Sources */,
 				EF7FE171273783FD00FD2EDB /* ContentView.swift in Sources */,
 				EF7FE1AE2737A90D00FD2EDB /* LogInViewModel.swift in Sources */,
+				EF6BB23B2745093600BED6FD /* BookingView.swift in Sources */,
+				EF755E662742EDEA00800AD1 /* HomeView.swift in Sources */,
+				EF755E622742E13E00800AD1 /* SettingsView.swift in Sources */,
 				EF7FE1B02737A91D00FD2EDB /* LogInView.swift in Sources */,
+				EF755E642742E1E700800AD1 /* SettingsViewModel.swift in Sources */,
 				EF7FE1B32737AA7300FD2EDB /* UserModel.swift in Sources */,
+				EF6BB23D27450F9300BED6FD /* BookingModel.swift in Sources */,
 				EF7FE16F273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009App.swift in Sources */,
+				EF755E5E2742762800800AD1 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,9 @@ import SwiftUI
 import UIKit
 
 struct LogInView: View {
-    @StateObject var userModel = UserModel()
-    @StateObject var logInViewModel = LogInViewModel()
+    @StateObject private var logInViewModel = LogInViewModel()
     @State var isLoginMode = true
-    @State private var showingAlert = false
+    @EnvironmentObject var authentication: Authentication
     
     var body: some View {
         NavigationView{
@@ -30,18 +29,19 @@ struct LogInView: View {
                     
                     Group{
                         if(!isLoginMode){
-                        TextField("First Name", text: $userModel.firstName)
-
-                        TextField("Last Name", text: $userModel.lastName)
+                            TextField("First Name", text: $logInViewModel.userModel.firstName)
+                            TextField("Last Name", text: $logInViewModel.userModel.lastName)
+                            TextField("NIC No", text: $logInViewModel.userModel.NIC)
+                            TextField("Vehicle No", text: $logInViewModel.userModel.VehicleNo)
                         }
-                        TextField("Email", text: $userModel.email)
+                        TextField("Email", text: $logInViewModel.credentials.email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                         
-                        SecureField("Password", text: $userModel.password)
+                        SecureField("Password", text: $logInViewModel.credentials.password)
                         
                         if(!isLoginMode){
-                            SecureField("Confirm Password", text: $userModel.confirmPass)
+                            SecureField("Confirm Password", text: $logInViewModel.credentials.confirmPass)
                         }
                     }
                     .padding(12)
@@ -63,9 +63,6 @@ struct LogInView: View {
                             Spacer()
                         }.background(Color.blue)
                     }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Error"), message: Text("Invalid username / password"), dismissButton: .default(Text("Got it!")))
-                    }
                     
                     if(isLoginMode){
                         Button(action: {}, label: {
@@ -83,6 +80,9 @@ struct LogInView: View {
                 }
                 .navigationTitle(isLoginMode ? "Log In" : "Create Account")
                 .navigationBarBackButtonHidden(false)
+                .alert(item: $logInViewModel.error) {error in
+                    Alert(title: Text("Invalid Login"), message: Text(error.localizedDescription))
+                }
             }
             .padding()
             .background(Color(.init(white: 0, alpha: 0.05)).ignoresSafeArea())
@@ -90,9 +90,13 @@ struct LogInView: View {
     }
     private func handleAction(){
         if isLoginMode{
-            showingAlert = logInViewModel.HandleLogIn(user : userModel)
+            logInViewModel.login { success in
+                authentication.updateValidation(success: success)
+            }
         } else {
-            showingAlert = logInViewModel.HandleSignUp(userM : userModel)
+            logInViewModel.signup { success in
+                authentication.updateValidation(success: success)
+            }
         }
     }
 }

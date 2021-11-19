@@ -7,11 +7,49 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView : View {
+    @StateObject var authentication = Authentication()
     var body: some View {
-        VStack(spacing: 16) {
-            /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-        }
+        TabView{
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Home")
+                }
+            
+            if(authentication.isValidated)
+            {
+                BookingView()
+                    .tabItem {
+                        Image(systemName: "calendar")
+                        Text("Bookings")
+                    }
+                
+                SettingsView()
+                    .environmentObject(authentication)
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
+            }
+            else {
+                
+                LogInView()
+                    .environmentObject(authentication)
+                    .tabItem {
+                        Image(systemName: "calendar")
+                        Text("Bookings")
+                    }
+                
+                LogInView()
+                    .environmentObject(authentication)
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                    }
+            }
+            
+        }.background(Color(.init(white: 0, alpha: 0.05)).ignoresSafeArea())
     }
 }
 

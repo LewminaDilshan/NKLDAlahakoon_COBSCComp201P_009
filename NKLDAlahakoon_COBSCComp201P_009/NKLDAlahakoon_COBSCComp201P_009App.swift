@@ -15,7 +15,7 @@ struct NKLDAlahakoon_COBSCComp201P_009App: App {
     
     var body: some Scene {
         WindowGroup {
-            LogInView()
+            ContentView()
         }
     }
 }
