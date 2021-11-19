@@ -35,7 +35,7 @@ class BookingViewModel : ObservableObject{
     }
     
     func GetSoltsForPicker(){
-        db.collection("ParkingSlots").whereField("IsBooked", isEqualTo: false).order(by: "SlotNo").addSnapshotListener { (querySnapshot, error) in
+        db.collection("ParkingSlots").whereField("IsBooked", isEqualTo: false).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -49,10 +49,11 @@ class BookingViewModel : ObservableObject{
                 let vehicleNo = data["VehicleNo"] as? String ?? ""
                 return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked, vehicleNo: vehicleNo)
             }
+            self.bookingModel.SlotID = self.slotLst.first?.id ?? ""
         }
     }
     
-    func setBooking(completion: @escaping (Bool) -> Void) {
+    func saveBooking(completion: @escaping (Bool) -> Void) {
         showProgressView = true
         let objBooking :[String: Any] = [
             "UID" : bookingModel.UID,
@@ -87,7 +88,7 @@ class BookingViewModel : ObservableObject{
     
     init(){
         slotLst.removeAll()
-        setBookingInfo()
         GetSoltsForPicker()
+        setBookingInfo()
     }
 }

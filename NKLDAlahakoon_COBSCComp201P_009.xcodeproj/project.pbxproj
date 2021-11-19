@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4E0152AE778B24D1E4AD7826 /* Pods_NKLDAlahakoon_COBSCComp201P_009Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BA0E7670C2B77D6CF3F5FE /* Pods_NKLDAlahakoon_COBSCComp201P_009Tests.framework */; };
 		54555DB81D657C03F2BD3D69 /* Pods_NKLDAlahakoon_COBSCComp201P_009_NKLDAlahakoon_COBSCComp201P_009UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7761D63A111FB46F7A485FA0 /* Pods_NKLDAlahakoon_COBSCComp201P_009_NKLDAlahakoon_COBSCComp201P_009UITests.framework */; };
 		9F18CB4CB5E794689ECD7E99 /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570DBB549B00F28A8F246CEA /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework */; };
+		EF5C79C62747DE2F00A1EB8D /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = EF5C79C52747DE2F00A1EB8D /* CodeScanner */; };
 		EF6BB2372743AC1B00BED6FD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB2362743AC1B00BED6FD /* HomeViewModel.swift */; };
 		EF6BB2392743B1FE00BED6FD /* SlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB2382743B1FE00BED6FD /* SlotModel.swift */; };
 		EF6BB23B2745093600BED6FD /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB23A2745093600BED6FD /* BookingView.swift */; };
@@ -31,6 +32,7 @@
 		EF7FE1B02737A91D00FD2EDB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */; };
 		EF7FE1B32737AA7300FD2EDB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1B22737AA7300FD2EDB /* UserModel.swift */; };
 		EFDC17D82747510D00CB260F /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */; };
+		EFDC17DC27476B9F00CB260F /* LaunchScreenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDC17DB27476B9F00CB260F /* LaunchScreenView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,7 @@
 		EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		EF7FE1B22737AA7300FD2EDB /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../../../Models/UserModel.swift; sourceTree = "<group>"; };
 		EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		EFDC17DB27476B9F00CB260F /* LaunchScreenView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5C79C62747DE2F00A1EB8D /* CodeScanner in Frameworks */,
 				9F18CB4CB5E794689ECD7E99 /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +237,7 @@
 				EF755E652742EDEA00800AD1 /* HomeView.swift */,
 				EF6BB23A2745093600BED6FD /* BookingView.swift */,
 				EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */,
+				EFDC17DB27476B9F00CB260F /* LaunchScreenView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +270,9 @@
 			dependencies = (
 			);
 			name = NKLDAlahakoon_COBSCComp201P_009;
+			packageProductDependencies = (
+				EF5C79C52747DE2F00A1EB8D /* CodeScanner */,
+			);
 			productName = NKLDAlahakoon_COBSCComp201P_009;
 			productReference = EF7FE16B273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009.app */;
 			productType = "com.apple.product-type.application";
@@ -339,6 +347,9 @@
 				Base,
 			);
 			mainGroup = EF7FE162273783FC00FD2EDB;
+			packageReferences = (
+				EF5C79C42747DE2F00A1EB8D /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = EF7FE16C273783FD00FD2EDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDC17DC27476B9F00CB260F /* LaunchScreenView.storyboard in Resources */,
 				EF7FE1762737840100FD2EDB /* Preview Assets.xcassets in Resources */,
 				EF7FE1732737840100FD2EDB /* Assets.xcassets in Resources */,
 				EF7FE19A2737876700FD2EDB /* GoogleService-Info.plist in Resources */,
@@ -820,6 +832,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF5C79C42747DE2F00A1EB8D /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF5C79C52747DE2F00A1EB8D /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF5C79C42747DE2F00A1EB8D /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF7FE163273783FC00FD2EDB /* Project object */;
 }
