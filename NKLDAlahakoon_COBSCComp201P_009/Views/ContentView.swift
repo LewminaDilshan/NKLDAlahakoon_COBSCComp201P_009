@@ -19,7 +19,7 @@ struct ContentView : View {
             
             if(authentication.isValidated)
             {
-                Text("Bookings")
+                BookingView()
                     .tabItem {
                         Image(systemName: "calendar")
                         Text("Bookings")

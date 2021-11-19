@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct BookingModel : Codable{
+struct BookingModel :  Codable{
     var UID: String = ""
     var RegNo: String = ""
     var VehicleNo: String = ""
-    var SlotNo: String = ""
+    var SlotID: String = ""
     var BookingDate: Date? = nil
     var BookingTime: Date? = nil
 }

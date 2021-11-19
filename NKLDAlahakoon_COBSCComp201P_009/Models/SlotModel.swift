@@ -12,4 +12,5 @@ struct SlotModel : Identifiable, Codable{
     var slotNo: Int
     var isVIP: Bool
     var isBooked: Bool
+    var vehicleNo: String
 }

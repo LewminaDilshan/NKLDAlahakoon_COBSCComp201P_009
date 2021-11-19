@@ -13,22 +13,22 @@ class HomeViewModel : ObservableObject{
     @Published var slotLst = [SlotModel]()
     let db = Firestore.firestore()
     
-/*    func getParkingSlots(){
-        db.collection("ParkingSlots").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    var slot = Slot()
-                    slot.slotNo = data["SlotNo"] as! Int
-                    slot.isVIP = data["SlotNo"] as! Bool
-                    slot.isBooked = data["SlotNo"] as! Bool
-                    self.slotLst.append(slot)
-                }
-            }
-        }
-    }*/
+    /*    func getParkingSlots(){
+     db.collection("ParkingSlots").getDocuments() { (querySnapshot, err) in
+     if let err = err {
+     print("Error getting documents: \(err)")
+     } else {
+     for document in querySnapshot!.documents {
+     let data = document.data()
+     var slot = Slot()
+     slot.slotNo = data["SlotNo"] as! Int
+     slot.isVIP = data["SlotNo"] as! Bool
+     slot.isBooked = data["SlotNo"] as! Bool
+     self.slotLst.append(slot)
+     }
+     }
+     }
+     }*/
     
     
     func IntialSlotData() {
@@ -48,25 +48,26 @@ class HomeViewModel : ObservableObject{
     }
     
     func GetSolts(){
-        slotLst.removeAll()
-        db.collection("ParkingSlots").addSnapshotListener { (querySnapshot, error) in
-                 guard let documents = querySnapshot?.documents else {
-                     print("No documents")
-                     return
-                 }
-                 self.slotLst = documents.map { (queryDocumentSnapshot) -> SlotModel in
-                     let data = queryDocumentSnapshot.data()
-                     let id = queryDocumentSnapshot.documentID
-                     let slotNo = data["SlotNo"] as? Int ?? 0
-                     let isVIP = data["IsVIP"] as? Bool ?? false
-                     let isBooked = data["IsBooked"] as? Bool ?? false
-                    return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked)
-                 }
-             }
+        db.collection("ParkingSlots").order(by: "SlotNo").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No documents")
+                return
+            }
+            self.slotLst = documents.map { (queryDocumentSnapshot) -> SlotModel in
+                let data = queryDocumentSnapshot.data()
+                let id = queryDocumentSnapshot.documentID
+                let slotNo = data["SlotNo"] as? Int ?? 0
+                let isVIP = data["IsVIP"] as? Bool ?? false
+                let isBooked = data["IsBooked"] as? Bool ?? false
+                let vehicleNo = data["VehicleNo"] as? String ?? ""
+                return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked, vehicleNo: vehicleNo)
+            }
+        }
     }
     
     init(){
         //IntialSlotData()
+        slotLst.removeAll()
         GetSolts()
     }
 }

@@ -49,23 +49,33 @@ struct GridView : View {
                         if(SlotModel.isVIP){
                             Image("VIP")
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
+                                .aspectRatio(contentMode: .fit)
                         }
                         else{
                             Image("Normal")
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
+                                .aspectRatio(contentMode: .fit)
                         }
                         
                         HStack{
                             Text("Slot No :")
                             Text(String(SlotModel.slotNo))
                         }
+                        if(SlotModel.isBooked)
+                        {
+                            Text("Reserved")
+                            Text(SlotModel.vehicleNo)
+                        }
+                        else{
+                            Text("Available")
+                            Spacer()
+                        }
                     }
-                    .border(Color.secondary)
-                    .background(Color(.cyan))
+                    .border(SlotModel.isBooked ? Color(.black) : Color.secondary)
+                    .background(SlotModel.isBooked ? Color(.red) : Color(.cyan))
                     .cornerRadius(12)
                     .shadow(color: Color.black.opacity(0.2), radius:5, x: 0, y: 5)
+                    .padding(.bottom,10)
                 }
                 
             }
