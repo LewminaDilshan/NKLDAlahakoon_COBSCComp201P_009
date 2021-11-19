@@ -65,11 +65,7 @@ struct LogInView: View {
                     }
                     
                     if(isLoginMode){
-                        Button(action: {}, label: {
-                            Text("Forgot Password?")
-                                .foregroundColor(Color.blue)
-                                .fontWeight(.light)
-                        })
+                        NavigationLink("Forgot Password?", destination:ForgotPasswordView().environmentObject(authentication))
                     }
                     
                     Spacer()
@@ -81,7 +77,7 @@ struct LogInView: View {
                 .navigationTitle(isLoginMode ? "Log In" : "Create Account")
                 .navigationBarBackButtonHidden(false)
                 .alert(item: $logInViewModel.error) {error in
-                    Alert(title: Text("Invalid Login"), message: Text(error.localizedDescription))
+                    Alert(title: Text("Error"), message: Text(error.localizedDescription))
                 }
             }
             .padding()

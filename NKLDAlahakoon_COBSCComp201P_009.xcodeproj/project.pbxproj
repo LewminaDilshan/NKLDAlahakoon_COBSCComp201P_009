@@ -30,6 +30,7 @@
 		EF7FE1AE2737A90D00FD2EDB /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1AD2737A90D00FD2EDB /* LogInViewModel.swift */; };
 		EF7FE1B02737A91D00FD2EDB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */; };
 		EF7FE1B32737AA7300FD2EDB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1B22737AA7300FD2EDB /* UserModel.swift */; };
+		EFDC17D82747510D00CB260F /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		EF7FE1AD2737A90D00FD2EDB /* LogInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		EF7FE1B22737AA7300FD2EDB /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../../../Models/UserModel.swift; sourceTree = "<group>"; };
+		EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				EF755E612742E13E00800AD1 /* SettingsView.swift */,
 				EF755E652742EDEA00800AD1 /* HomeView.swift */,
 				EF6BB23A2745093600BED6FD /* BookingView.swift */,
+				EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			files = (
 				EF755E5B2742637900800AD1 /* Authentication.swift in Sources */,
 				EF6BB23F2746593900BED6FD /* BookingViewModel.swift in Sources */,
+				EFDC17D82747510D00CB260F /* ForgotPasswordView.swift in Sources */,
 				EF6BB2392743B1FE00BED6FD /* SlotModel.swift in Sources */,
 				EF6BB2372743AC1B00BED6FD /* HomeViewModel.swift in Sources */,
 				EF7FE171273783FD00FD2EDB /* ContentView.swift in Sources */,
