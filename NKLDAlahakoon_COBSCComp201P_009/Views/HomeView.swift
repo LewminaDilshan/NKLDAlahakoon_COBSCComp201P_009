@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var homeViewModel = HomeViewModel()
-    
+    @EnvironmentObject var authentication: Authentication
     
     let layout = [
         GridItem(.flexible(minimum: 100)),
@@ -22,7 +22,7 @@ struct HomeView: View {
             ScrollView(.vertical){
                 GridView(Data: homeViewModel.slotLst)
             }
-            .navigationTitle("Home")
+            .navigationTitle(authentication.isValidated ? "Welcome Back" : "Home")
             .background(Color(.init(white: 0, alpha: 0.05)).ignoresSafeArea())
         }
     }

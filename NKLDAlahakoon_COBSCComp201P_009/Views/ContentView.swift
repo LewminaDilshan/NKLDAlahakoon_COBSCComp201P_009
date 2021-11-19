@@ -12,6 +12,7 @@ struct ContentView : View {
     var body: some View {
         TabView{
             HomeView()
+                .environmentObject(authentication)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")

@@ -11,6 +11,7 @@ import UIKit
 struct SettingsView: View {
     @StateObject private var settingsViewModel = SettingsViewModel()
     @EnvironmentObject var authentication: Authentication
+    @State var isLogOut = false
     
     var body: some View {
         NavigationView{
@@ -50,11 +51,22 @@ struct SettingsView: View {
                 .navigationTitle("Settings")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing){
-                        Button("Log Out"){
-                            authentication.updateValidation(success: false)
-                        }
+                        Button(action: { self.isLogOut = true}, label: {
+                            Text("Log Out")
+                                .foregroundColor(Color.red)
+                                .fontWeight(.semibold)
+                        })
                     }
                 }
+                .alert(isPresented: $isLogOut, content: {
+                    Alert(title: Text("Ready to Leave?"),
+                          message: Text("You are ready to end your current session."),
+                          primaryButton: .destructive(Text("Log Out"), action: {
+                            authentication.updateValidation(success: false)
+                          }),
+                          secondaryButton: .cancel()
+                    )
+                })
             }
             .padding()
             .background(Color(.init(white: 0, alpha: 0.05)).ignoresSafeArea())
