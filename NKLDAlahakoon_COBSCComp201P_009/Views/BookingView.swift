@@ -7,9 +7,25 @@
 
 import SwiftUI
 import UIKit
+import CodeScanner
 
 struct BookingView: View {
     @StateObject private var bookingViewModel = BookingViewModel()
+    @State var isPerentingScanner = false
+    
+    var scannerSheet: some View{
+        CodeScannerView(codeTypes: [.qr], completion: {
+            result in
+            if case let .success(code) = result{
+                bookingViewModel.bookingModel.SlotID = code
+                self.isPerentingScanner = false
+                handleAction()
+            }
+        })
+        .alert(isPresented: $bookingViewModel.isSuccess) {
+            Alert(title: Text("Success"), message: Text("Slot Reserved"))
+        }
+    }
     
     var body: some View {
         NavigationView{
@@ -34,7 +50,7 @@ struct BookingView: View {
                         Spacer()
                         Text("Pic a slot")
                             .foregroundColor(.blue)
-                        Picker(selection: $bookingViewModel.bookingModel.SlotID, label: Text("Pic a slot")){
+                        Picker(selection: $bookingViewModel.bookingModel.SlotID, label: Text("Pick a slot")){
                             ForEach(bookingViewModel.slotLst){SlotModel in
                                 HStack{
                                     Text(String(SlotModel.slotNo))
@@ -67,11 +83,20 @@ struct BookingView: View {
                         }.background(Color.blue)
                     }
                     .alert(isPresented: $bookingViewModel.isSuccess) {
-                        Alert(title: Text("Success"), message: Text(bookingViewModel.isSuccess ? "Slot Reserved" : "Something wrong..."))
+                        Alert(title: Text("Success"), message: Text("Slot Reserved"))
                     }
-                    
                 }
                 .navigationTitle("Bookings")
+                
+                VStack{
+                    Button("Scan QR code"){
+                        self.isPerentingScanner = true
+                    }
+                    .sheet(isPresented: $isPerentingScanner)
+                    {
+                        self.scannerSheet
+                    }
+                }
             }
             .padding()
             .background(Color(.init(white: 0, alpha: 0.05)).ignoresSafeArea())
@@ -80,7 +105,7 @@ struct BookingView: View {
     
     private func handleAction(){
         
-        bookingViewModel.setBooking { success in
+        bookingViewModel.saveBooking { success in
             bookingViewModel.isSuccess = success
         }
     }

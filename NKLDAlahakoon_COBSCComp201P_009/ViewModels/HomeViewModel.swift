@@ -13,24 +13,6 @@ class HomeViewModel : ObservableObject{
     @Published var slotLst = [SlotModel]()
     let db = Firestore.firestore()
     
-    /*    func getParkingSlots(){
-     db.collection("ParkingSlots").getDocuments() { (querySnapshot, err) in
-     if let err = err {
-     print("Error getting documents: \(err)")
-     } else {
-     for document in querySnapshot!.documents {
-     let data = document.data()
-     var slot = Slot()
-     slot.slotNo = data["SlotNo"] as! Int
-     slot.isVIP = data["SlotNo"] as! Bool
-     slot.isBooked = data["SlotNo"] as! Bool
-     self.slotLst.append(slot)
-     }
-     }
-     }
-     }*/
-    
-    
     func IntialSlotData() {
         for n in 1...20 {
             db.collection("ParkingSlots").document().setData([
