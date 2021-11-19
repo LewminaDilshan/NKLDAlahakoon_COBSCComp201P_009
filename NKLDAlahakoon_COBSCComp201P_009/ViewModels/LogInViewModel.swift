@@ -14,9 +14,11 @@ class LogInViewModel : ObservableObject{
     let auth = Auth.auth()
     @Published var userModel = UserModel()
     @Published var credentials = Credentials()
+    @Published var fogotPassModel = ForgotPasswordModel()
     @Published var loggedIn = false
     @Published var showProgressView = false
     @Published var error: Authentication.AuthenticationError?
+    @Published var isForgotPassSuccess: Bool = false
     
     var isLoggedIn: Bool{
         return auth.currentUser != nil
@@ -46,6 +48,20 @@ class LogInViewModel : ObservableObject{
                 completion(true)
             case .failure(let authError):
                 userModel = UserModel()
+                error = authError
+                completion(false)
+            }
+        }
+    }
+    
+    func forgotPass(completion: @escaping (Bool) -> Void) {
+        showProgressView = true
+        AuthService.shared.forgotPassword(fogotPass: fogotPassModel){[unowned self](result:Result<Bool, Authentication.AuthenticationError>) in
+            showProgressView = false
+            switch result {
+            case .success:
+                completion(true)
+            case .failure(let authError):
                 error = authError
                 completion(false)
             }
