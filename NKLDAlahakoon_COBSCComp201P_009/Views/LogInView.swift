@@ -11,7 +11,6 @@ import UIKit
 struct LogInView: View {
     @StateObject private var logInViewModel = LogInViewModel()
     @State var isLoginMode = true
-    @State private var showingAlert = false
     @EnvironmentObject var authentication: Authentication
     
     var body: some View {
@@ -63,9 +62,6 @@ struct LogInView: View {
                                 .padding(.vertical, 10)
                             Spacer()
                         }.background(Color.blue)
-                    }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Error"), message: Text("Invalid username / password"), dismissButton: .default(Text("Got it!")))
                     }
                     
                     if(isLoginMode){
