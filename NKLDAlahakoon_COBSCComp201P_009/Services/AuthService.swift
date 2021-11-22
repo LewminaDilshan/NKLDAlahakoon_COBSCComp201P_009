@@ -9,7 +9,12 @@ import Foundation
 import FirebaseAuth
 import Firebase
 
-class AuthService{
+protocol AuthServiceProtocol{
+    func login(credentials: Credentials, completion: @escaping (Result<Bool,  Authentication.AuthenticationError>)->  Void )
+}
+
+final class AuthService: AuthServiceProtocol{
+    
     let auth = Auth.auth()
     static let shared = AuthService()
     let db = Firestore.firestore()
