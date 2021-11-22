@@ -20,6 +20,12 @@ class LogInViewModel : ObservableObject{
     @Published var error: Authentication.AuthenticationError?
     @Published var isForgotPassSuccess: Bool = false
     
+    private let authService : AuthServiceProtocol
+    
+    init(authSerive: AuthServiceProtocol = AuthService()){
+        self.authService = authSerive
+    }
+    
     var isLoggedIn: Bool{
         return auth.currentUser != nil
     }

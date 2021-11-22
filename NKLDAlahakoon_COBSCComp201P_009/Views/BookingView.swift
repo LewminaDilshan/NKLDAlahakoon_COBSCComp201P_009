@@ -48,7 +48,7 @@ struct BookingView: View {
                         Spacer()
                         Divider()
                         Spacer()
-                        Text("Pic a slot")
+                        Text("Pick a slot")
                             .foregroundColor(.blue)
                         Picker(selection: $bookingViewModel.bookingModel.SlotID, label: Text("Pick a slot")){
                             ForEach(bookingViewModel.slotLst){SlotModel in

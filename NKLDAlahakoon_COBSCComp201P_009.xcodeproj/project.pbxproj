@@ -10,6 +10,8 @@
 		4E0152AE778B24D1E4AD7826 /* Pods_NKLDAlahakoon_COBSCComp201P_009Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BA0E7670C2B77D6CF3F5FE /* Pods_NKLDAlahakoon_COBSCComp201P_009Tests.framework */; };
 		54555DB81D657C03F2BD3D69 /* Pods_NKLDAlahakoon_COBSCComp201P_009_NKLDAlahakoon_COBSCComp201P_009UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7761D63A111FB46F7A485FA0 /* Pods_NKLDAlahakoon_COBSCComp201P_009_NKLDAlahakoon_COBSCComp201P_009UITests.framework */; };
 		9F18CB4CB5E794689ECD7E99 /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570DBB549B00F28A8F246CEA /* Pods_NKLDAlahakoon_COBSCComp201P_009.framework */; };
+		EF2A2D58274BBC0500E6422B /* AuthServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A2D57274BBC0500E6422B /* AuthServiceSpec.swift */; };
+		EF2A2D5A274BBC2D00E6422B /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2A2D59274BBC2D00E6422B /* AuthServiceMock.swift */; };
 		EF5C79C62747DE2F00A1EB8D /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = EF5C79C52747DE2F00A1EB8D /* CodeScanner */; };
 		EF6BB2372743AC1B00BED6FD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB2362743AC1B00BED6FD /* HomeViewModel.swift */; };
 		EF6BB2392743B1FE00BED6FD /* SlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6BB2382743B1FE00BED6FD /* SlotModel.swift */; };
@@ -62,6 +64,8 @@
 		8CAD6F12A8A3F4D038F5F3F2 /* Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.debug.xcconfig"; path = "Target Support Files/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B556B26C9153BDFE4BD787EC /* Pods-NKLDAlahakoon_COBSCComp201P_009.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKLDAlahakoon_COBSCComp201P_009.release.xcconfig"; path = "Target Support Files/Pods-NKLDAlahakoon_COBSCComp201P_009/Pods-NKLDAlahakoon_COBSCComp201P_009.release.xcconfig"; sourceTree = "<group>"; };
 		C19D7E7D9AA07B680F034655 /* Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.release.xcconfig"; path = "Target Support Files/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests/Pods-NKLDAlahakoon_COBSCComp201P_009-NKLDAlahakoon_COBSCComp201P_009UITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF2A2D57274BBC0500E6422B /* AuthServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceSpec.swift; sourceTree = "<group>"; };
+		EF2A2D59274BBC2D00E6422B /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
 		EF6BB2362743AC1B00BED6FD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EF6BB2382743B1FE00BED6FD /* SlotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotModel.swift; sourceTree = "<group>"; };
 		EF6BB23A2745093600BED6FD /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			children = (
 				EF7FE1802737840100FD2EDB /* NKLDAlahakoon_COBSCComp201P_009Tests.swift */,
 				EF7FE1822737840100FD2EDB /* Info.plist */,
+				EF2A2D57274BBC0500E6422B /* AuthServiceSpec.swift */,
+				EF2A2D59274BBC2D00E6422B /* AuthServiceMock.swift */,
 			);
 			path = NKLDAlahakoon_COBSCComp201P_009Tests;
 			sourceTree = "<group>";
@@ -520,6 +526,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2A2D5A274BBC2D00E6422B /* AuthServiceMock.swift in Sources */,
+				EF2A2D58274BBC0500E6422B /* AuthServiceSpec.swift in Sources */,
 				EF7FE1812737840100FD2EDB /* NKLDAlahakoon_COBSCComp201P_009Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
