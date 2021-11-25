@@ -41,6 +41,7 @@ struct GridView : View {
         GridItem(.flexible(minimum: 100)),
         GridItem(.flexible(minimum: 100))
     ]
+    
     var body: some View{
         LazyVGrid(columns: layout){
             ForEach(Data){SlotModel in
@@ -77,6 +78,7 @@ struct GridView : View {
                     .shadow(color: Color.black.opacity(0.2), radius:5, x: 0, y: 5)
                     .padding(.bottom,10)
                 }
+                
                 
             }
         }

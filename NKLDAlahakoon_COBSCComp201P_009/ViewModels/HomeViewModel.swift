@@ -42,7 +42,45 @@ class HomeViewModel : ObservableObject{
                 let isVIP = data["IsVIP"] as? Bool ?? false
                 let isBooked = data["IsBooked"] as? Bool ?? false
                 let vehicleNo = data["VehicleNo"] as? String ?? ""
-                return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked, vehicleNo: vehicleNo)
+                let resTime = data["ReservedTime"] as? Timestamp ?? Timestamp()
+                let dateCurr = Date()
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+                let reservedTime = formatter.date(from: self.dateFormatTime(date: resTime.dateValue()))
+                let currTime = formatter.date(from: self.dateFormatTime(date: dateCurr))
+                let diff = Calendar.current.dateComponents([.second], from: reservedTime ?? Date(), to: currTime ?? Date())
+                
+                let remTime = Int(600 - (diff.second ?? 0))
+                
+                if(isBooked)
+                {
+                    _ = Timer.scheduledTimer(withTimeInterval: TimeInterval(remTime), repeats: true, block: { timer in
+                        self.updateSlot(slotId: id, timer: timer)
+                    })
+                }
+                
+                return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked, vehicleNo: vehicleNo, ReservedTime: resTime.dateValue(), RemainingTime: remTime)
+            }
+        }
+    }
+    
+    
+    func dateFormatTime(date : Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        return dateFormatter.string(from: date)
+    }
+    
+    func updateSlot(slotId: String, timer: Timer){
+        self.db.collection("ParkingSlots").document(slotId).updateData([
+            "IsBooked" : false
+        ]){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                timer.invalidate()
+                print("Slot successfully Updated!")
             }
         }
     }

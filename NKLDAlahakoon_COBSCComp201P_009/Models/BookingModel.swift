@@ -12,6 +12,5 @@ struct BookingModel :  Codable{
     var RegNo: String = ""
     var VehicleNo: String = ""
     var SlotID: String = ""
-    var BookingDate: Date? = nil
-    var BookingTime: Date? = nil
+    var ReservedTime: Date? = nil
 }

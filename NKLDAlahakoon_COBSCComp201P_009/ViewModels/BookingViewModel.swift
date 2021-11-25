@@ -47,7 +47,9 @@ class BookingViewModel : ObservableObject{
                 let isVIP = data["IsVIP"] as? Bool ?? false
                 let isBooked = data["IsBooked"] as? Bool ?? false
                 let vehicleNo = data["VehicleNo"] as? String ?? ""
-                return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked, vehicleNo: vehicleNo)
+                let resTime = data["ReservedTime"] as? Timestamp ?? Timestamp()
+                
+                return SlotModel(id: id, slotNo: slotNo, isVIP: isVIP, isBooked: isBooked, vehicleNo: vehicleNo, ReservedTime: resTime.dateValue(), RemainingTime: 0)
             }
             self.bookingModel.SlotID = self.slotLst.first?.id ?? ""
         }
