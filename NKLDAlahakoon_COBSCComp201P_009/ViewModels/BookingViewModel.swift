@@ -8,13 +8,16 @@
 import Foundation
 import FirebaseAuth
 import Firebase
+import CoreLocation
 
 class BookingViewModel : ObservableObject{
     @Published var bookingModel = BookingModel()
     @Published var slotLst = [SlotModel]()
     @Published var showProgressView = false
     @Published var isSuccess: Bool = false
+    @Published var isError: Bool = false
     let db = Firestore.firestore()
+    let locationSer = LocationService()
     
     func setBookingInfo(){
         let user = Auth.auth().currentUser
@@ -57,35 +60,59 @@ class BookingViewModel : ObservableObject{
     
     func saveBooking(completion: @escaping (Bool) -> Void) {
         showProgressView = true
-        let objBooking :[String: Any] = [
-            "UID" : bookingModel.UID,
-            "SlotID" : bookingModel.SlotID,
-            "VehicleNo" : bookingModel.VehicleNo,
-            "RegNo" : bookingModel.RegNo,
-            "ReservedTime": FieldValue.serverTimestamp()
-        ]
-        self.db.collection("Bookings").document().setData(objBooking) { err in
-            self.showProgressView = false
-            if let err = err {
-                print("Error writing document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully written!")
-                self.db.collection("ParkingSlots").document(self.bookingModel.SlotID).updateData([
-                    "IsBooked" : true,
-                    "VehicleNo" : self.bookingModel.VehicleNo,
-                    "ReservedTime": FieldValue.serverTimestamp()
-                ]){ err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                        completion(false)
-                    } else {
-                        print("Slot successfully Updated!")
-                        completion(true)
+        if(GetDistance() < 1){
+            let objBooking :[String: Any] = [
+                "UID" : bookingModel.UID,
+                "SlotID" : bookingModel.SlotID,
+                "VehicleNo" : bookingModel.VehicleNo,
+                "RegNo" : bookingModel.RegNo,
+                "ReservedTime": FieldValue.serverTimestamp()
+            ]
+            self.db.collection("Bookings").document().setData(objBooking) { err in
+                self.showProgressView = false
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false)
+                } else {
+                    print("Document successfully written!")
+                    self.db.collection("ParkingSlots").document(self.bookingModel.SlotID).updateData([
+                        "IsBooked" : true,
+                        "VehicleNo" : self.bookingModel.VehicleNo,
+                        "ReservedTime": FieldValue.serverTimestamp()
+                    ]){ err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                            completion(false)
+                        } else {
+                            print("Slot successfully Updated!")
+                            completion(true)
+                        }
                     }
                 }
             }
         }
+        else{
+            self.showProgressView = false
+            print("Not in range")
+            completion(false)
+        }
+    }
+    
+    func GetDistance() -> Double{
+        let Location_NIBM = CLLocation(latitude: 6.9065, longitude: 79.8707)
+        
+        let userLocationInRange = CLLocation(latitude: 6.9027, longitude: 79.8688)
+        
+        let userLocationOutOfRange = CLLocation(latitude: 6.8911, longitude: 79.8668)
+        
+        _ = CLLocation(latitude:Double(locationSer.location?.latitude ?? 0), longitude: Double(locationSer.location?.longitude ?? 0))
+        
+        let distance = Location_NIBM.distance(from: userLocationInRange)/1000
+        //let distance = Location_NIBM.distance(from: userLocationOutOfRange)/1000
+        
+        print("Distance difference : ", distance)
+        
+        return distance
     }
     
     init(){
