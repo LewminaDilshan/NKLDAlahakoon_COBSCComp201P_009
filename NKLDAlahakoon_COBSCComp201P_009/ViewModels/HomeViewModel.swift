@@ -73,13 +73,13 @@ class HomeViewModel : ObservableObject{
     }
     
     func updateSlot(slotId: String, timer: Timer){
+        timer.invalidate()
         self.db.collection("ParkingSlots").document(slotId).updateData([
             "IsBooked" : false
         ]){ err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
-                timer.invalidate()
                 print("Slot successfully Updated!")
             }
         }

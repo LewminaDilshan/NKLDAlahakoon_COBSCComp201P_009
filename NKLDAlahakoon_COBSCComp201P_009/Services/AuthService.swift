@@ -45,7 +45,11 @@ final class AuthService: AuthServiceProtocol{
     
     func signup(credentials: Credentials, userM: UserModel, completion: @escaping (Result<Bool, Authentication.AuthenticationError>) -> Void){
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            if credentials.password != credentials.confirmPass
+            if userM.firstName == "" || userM.lastName == "" || userM.NIC == "" || userM.VehicleNo == "" || credentials.email == ""
+            {
+                completion(.failure(.required))
+            }
+            else if credentials.password != credentials.confirmPass
             {
                 completion(.failure(.invalidCredentials))
             }

@@ -107,6 +107,10 @@ struct BookingView: View {
         
         bookingViewModel.saveBooking { success in
             bookingViewModel.isSuccess = success
+            if(success == false)
+            {
+                bookingViewModel.isError = true
+            }
         }
     }
 }

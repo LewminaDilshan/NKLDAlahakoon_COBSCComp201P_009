@@ -18,6 +18,7 @@ class Authentication: ObservableObject {
         case emailAlreadyInUse
         case weakPassword
         case operationNotAllowed
+        case required
         
         var id: String {
             self.localizedDescription
@@ -37,6 +38,8 @@ class Authentication: ObservableObject {
                 return NSLocalizedString("Email Address already used.", comment: "")
             case .weakPassword:
                 return NSLocalizedString("The password is week.", comment: "")
+            case .required:
+                return NSLocalizedString("All fields are required.", comment: "")
             case .ukError:
                 return NSLocalizedString("Something wrong...", comment: "")
             }

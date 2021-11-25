@@ -35,6 +35,7 @@
 		EF7FE1AE2737A90D00FD2EDB /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1AD2737A90D00FD2EDB /* LogInViewModel.swift */; };
 		EF7FE1B02737A91D00FD2EDB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */; };
 		EF7FE1B32737AA7300FD2EDB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7FE1B22737AA7300FD2EDB /* UserModel.swift */; };
+		EF86E698274F90A800120AF0 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF86E697274F90A800120AF0 /* LocationService.swift */; };
 		EFDC17D82747510D00CB260F /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */; };
 		EFDC17DC27476B9F00CB260F /* LaunchScreenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDC17DB27476B9F00CB260F /* LaunchScreenView.storyboard */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		EF7FE1AD2737A90D00FD2EDB /* LogInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		EF7FE1AF2737A91D00FD2EDB /* LogInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		EF7FE1B22737AA7300FD2EDB /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../../../Models/UserModel.swift; sourceTree = "<group>"; };
+		EF86E697274F90A800120AF0 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		EFDC17D72747510D00CB260F /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		EFDC17DB27476B9F00CB260F /* LaunchScreenView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreenView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				EF755E5D2742762800800AD1 /* AuthService.swift */,
+				EF86E697274F90A800120AF0 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				EF7FE1B32737AA7300FD2EDB /* UserModel.swift in Sources */,
 				EF6BB23D27450F9300BED6FD /* BookingModel.swift in Sources */,
 				EF7FE16F273783FD00FD2EDB /* NKLDAlahakoon_COBSCComp201P_009App.swift in Sources */,
+				EF86E698274F90A800120AF0 /* LocationService.swift in Sources */,
 				EF755E5E2742762800800AD1 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
