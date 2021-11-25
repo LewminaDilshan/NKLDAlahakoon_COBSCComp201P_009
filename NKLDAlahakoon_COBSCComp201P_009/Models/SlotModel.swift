@@ -13,4 +13,6 @@ struct SlotModel : Identifiable, Codable{
     var isVIP: Bool
     var isBooked: Bool
     var vehicleNo: String
+    var ReservedTime: Date?
+    var RemainingTime: Int
 }

@@ -69,10 +69,8 @@ struct LogInView: View {
                     }
                     
                     Spacer()
-                    Button(action: {}, label: {
-                        Text("Terms & Conditions")
-                            .foregroundColor(Color.black)
-                    })
+                    NavigationLink("Terms & Conditions", destination:TermsAndConditionView())
+                        .foregroundColor(.black)
                 }
                 .navigationTitle(isLoginMode ? "Log In" : "Create Account")
                 .navigationBarBackButtonHidden(false)
